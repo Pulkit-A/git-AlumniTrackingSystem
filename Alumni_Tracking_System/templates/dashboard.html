@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<style>
+    .md-inactive{
+    color: rgba(0,0,0, 0.26)
+    }
+</style>
+<nav class="nav-extended">
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#test1">DashBoard</a></li>
+            <li class="tab"><a href="/profile/">Profile</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="test1" class="col s12">
+    <br>
+    <div style="text-align:right"><a href="/logout/">
+    <button class="btn waves-effect waves-light" type="submit">Logout</button>
+        &emsp; &emsp;
+</a></div>
+<div class="container">
+    <br>
+    {% for ev in events %}
+
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src={{ev.img.url}} height=350 width=40>
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><b>{{ev.title}}</b></span>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><b>{{ev.title}}</b><i class="material-icons right">close</i></span>
+            <p>{{ev.desc}}
+            <br><b>Duration : </b> {{ev.time}}
+            </p>
+        </div>
+    </div>        
+    {% endfor %}
+</div>
+</div>
+{% else %}
+<br>
+<marquee behavior="alternate" direction="left"><h3>USER NOT LOGGED IN</h3></marquee>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h4 align="center">Event Details</h4>
+<form method="POST" class="container" action="/univ/eventadd/">
+    {% csrf_token %}
+    <div class="container">
+        <div class="container">
+            {{ form }}
+            <br>
+            <br>
+            <button class="btn waves-effect waves-light" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+<br>
+{% else %}
+<br>
+<marquee behavior="alternate" direction="left"><h3>USER NOT LOGGED IN</h3></marquee>
+{% endif %}
+{% endblock %}

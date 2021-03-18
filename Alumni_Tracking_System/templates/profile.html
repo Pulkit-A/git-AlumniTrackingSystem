@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="nav-extended">
+    </div>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="/dashboard/">DashBoard</a></li>
+            <li class="tab"><a class="active" href="#test2">Profile</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="test2" class="container">
+      <br>
+    <div style="text-align:right"><a href="/logout/">
+    <button class="btn waves-effect waves-light" type="submit">Logout</button>
+        &emsp; &emsp;
+</a></div>
+    <br>
+    {% if pp == None %}
+    <div style="text-align: center;"></div>
+        <i class="small material-icons" style="color: black">account_circle</i>
+    </div>
+    <br>
+    {% else %}
+    <div style="text-align: center;">
+        <img src= {{pp.url}} height=80 width=80 style="border-radius:50%; border: 1px solid black;">
+    </div>
+    <br>
+    {% endif %}
+<ul class="collection with-header">
+    <li class="collection-header"><h5>Your Profile</h5></li>
+    <li class="collection-item"><b> Name  :</b>&emsp;{{nm}}</li>
+    <li class="collection-item"><b>Roll Number  :</b>&emsp;{{rn}}</li>
+    <li class="collection-item"><b>Email  :</b>&emsp;{{em}}</li>
+    <li class="collection-item"><b>Course  :</b>&emsp;{{co}}</li>
+    <li class="collection-item"><b>Mobile Number  :</b>&emsp;{{mn}}</li>
+    <li class="collection-item"><b>Organization Name  :</b>&emsp;{{on}}</li>
+    <li class="collection-item"><b>Organization Address  :</b>&emsp;{{oa}}</li>
+    <li class="collection-item"><b>Alumni Designation  :</b>&emsp;{{ad}}</li>
+</ul>
+    <div style="text-align:center">
+<a href="/profile/edit/" class="waves-effect waves-light btn-small"><i class="material-icons right">border_color</i>Edit</a>
+</div>
+</div>
+{% endblock %}

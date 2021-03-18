@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<nav class="nav-extended">
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="/univ/dashboard/">Events</a></li>
+            <li class="tab"><a href="/univ/profile/">Profile</a></li>
+            <li class="tab"><a class="active" href="#test3">Alumni</a></li>
+        </ul>
+    </div>
+</nav>
+<br>
+<h4 align="center">Alumni</h4>
+<br>
+<div class="container">
+    <ul class="collection">
+        {% for p in al %}
+            <li class="collection-item avatar">
+              <img src={{p.profile_pic.url}} class="circle">
+              <span class="title"><b>{{p.name}}</b></span>
+              <p><b>Roll No. : </b>{{p.r_no}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                 <b>Course : </b>{{p.course}}<br>
+                 <b>Email : </b>{{p.email}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                 <b>Organization : </b>{{p.org_name}}
+              </p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+<br>
+<marquee behavior="alternate" direction="left"><h3>USER NOT LOGGED IN</h3></marquee>
+{% endif %}
+{% endblock %}

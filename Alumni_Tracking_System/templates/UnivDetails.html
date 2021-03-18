@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4 align="center">Details</h4>
+<form method="POST" class="container" action="/univ/UnivDetails/">
+    {% csrf_token %}
+    <div class="container">
+        <div class="container">
+            {{ form }}
+            <br>
+            <br>
+            <button class="btn waves-effect waves-light" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+<br>
+{% endblock %}

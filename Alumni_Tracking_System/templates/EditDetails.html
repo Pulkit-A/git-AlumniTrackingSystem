@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4 align="center">Edit Profile</h4>
+<form method="POST" class="container" action="/profile/edit/">
+    {% csrf_token %}
+    <div class="container">
+        <div class="container">
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="email" name="email" placeholder={{em}}>
+                <br>
+            </div>
+            <div class="form-group">
+                <label>Course</label>
+                <input class="form-control" type="text" name="course" placeholder={{co}}>
+                <br>
+            </div>
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input class="form-control" type="tel" name="mno" placeholder={{mn}}>
+                <br>
+            </div>
+            <div class="form-group">
+                <label>Organization Name</label>
+                <input class="form-control" type="text" name="orgname" placeholder={{on}}>
+                <br>
+            </div>
+            <div class="form-group">
+                <label>Organization Address</label>
+                <input class="form-control" type="text" name="orgadd" placeholder={{oa}}>
+                <br>
+            </div>
+            <div class="form-group">
+                <label>Alumni Designation</label>
+                <input class="form-control" type="text" name="aldsg" placeholder={{ad}}>
+                <br>
+            </div>
+            <div class="form-group">
+                <label>Profile Picture</label>
+                <input class="form-control" type="file" accept="image/*" name="profilepic" placeholder={{pp.url}}>
+                <br>
+            </div>
+            <br>
+            <br>
+            <button class="btn waves-effect waves-light" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+<br>
+{% endblock %}
